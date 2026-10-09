@@ -5,6 +5,13 @@ server — `noul` / `choice` / `score` questions with probabilities — running 
 a **7M-parameter model, CPU-only, in an 8MB tarball**. No GPU, no Python, no
 dependencies beyond a Linux x86_64 box.
 
+Written entirely in **MFL** ([machin](https://github.com/javimosch/machin)) —
+the model runtime, the server, and the decision heads compile to a single
+static native binary through machin's C backend. There is no Python anywhere
+in the inference path.
+
+*Author: [Javier Leandro Arancibia](https://github.com/javimosch)*
+
 Point any Jev/TypeSafe SDK client at `http://127.0.0.1:8097` via `base_url`.
 
 ## Install & run
