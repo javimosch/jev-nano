@@ -62,6 +62,20 @@ Same binary also serves `/v1/route` (dispatcher with abstention/delegation),
 `/v1/decide` `/v1/noul` `/v1/score` `/v1/assess` (trained head lanes),
 `/v1/chat/completions`, `/v1/feedback`, `/guide`, `/llms.txt`.
 
+## Honest benchmark (JevBench public set)
+
+Ran JevBench's 231 public items through this server (harness in
+`bench/`): **28% on the easy+original tiers** (120 items — the hard tier's
+~3.7k-token states exceed this model's 384-token context). Raw
+candidate-logprob scoring on a 7M-parameter trunk is real but shallow:
+it agrees with hosted Jev on clear noul/urgency calls and is near chance
+on fine-grained multi-way choices. Compare local-jev's 80.5% on the full
+231 using a 1.5B+ instruct model — that is the honest price of 8MB.
+
+The accurate path at this size is the trained-head lanes (`/v1/route`,
+`/v1/decide`): a head fitted on *your* labels reaches 90-98% on its
+taxonomy at the same 7M/CPU footprint — that is the product.
+
 ## What this is
 
 The open demo of [mtlm-router](https://mtlm-router.intrane.fr) — a self-hosted
