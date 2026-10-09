@@ -25,8 +25,8 @@ or manually:
 
 ```bash
 curl -fsSLo appliance.tar.gz \
-  https://github.com/javimosch/mtlm-router/releases/download/v0.2.0/mtlm-router-v0.2.0-linux-amd64.tar.gz
-tar xzf appliance.tar.gz && cd mtlm-router-v0.2.0-linux-amd64 && ./start.sh
+  https://github.com/javimosch/mtlm-router/releases/download/v0.3.0/mtlm-router-v0.3.0-linux-amd64.tar.gz
+tar xzf appliance.tar.gz && cd mtlm-router-v0.3.0-linux-amd64 && ./start.sh
 ```
 
 ## Use
