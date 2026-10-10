@@ -50,11 +50,18 @@ Real Jev's published answer to that exact question: `0.95`. Ours: `0.99`.
 | hardware | **any CPU** | GPU box or 16–24GB RAM |
 | scoring | head + candidate logprob | per-candidate logprob |
 | abstention | **calibrated conformal gate** (`set_size`, `qhat`, error budgets) | max-prob confidence |
-| contract | `/v1/systemone` drop-in | `/v1/systemone` |
+| contract | `/v1/systemone` drop-in — **19/19 contract checks** (request shapes, validation, error types) | `/v1/systemone` |
 
 `jev-local`'s own eval found every model under ~1.5B collapses on
 choice/score questions. jev-nano is the tier below that floor — a frozen
 trunk plus small trained heads instead of raw logprob guessing.
+
+## Contract conformance
+
+`bench/systemone/contract.sh` in mtlm-router exercises the wire contract:
+string/object/array `state`, criteria-map and `options`-array choice forms,
+score legends, multi-question answers, every documented validation error,
+and `max_tokens_exceeded` on context overflow. **19/19 against v0.3.0.**
 
 ## Extra endpoints
 
